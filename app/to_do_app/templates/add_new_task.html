@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить новую задачу</title>
+</head>
+<body>
+<div class="form">
+    <form action="/task/add" method="post">
+        {% csrf_token %}
+        <div class="form_row">
+            <label for="description">Описание</label>
+            <input required type="text" id="description" name="description">
+        </div>
+        <div class="form_row">
+            <select id="status" name="status" required>
+                <option value="new">новая</option>
+                <option value="in_process">в процессе</option>
+                <option value="complete">сделано</option>
+            </select>
+        </div>
+        <div class="form_row">
+            <label for="complete_data">Дата выполнения</label>
+            <input type="date" id="complete_data" name="complete_data"
+                   value="2023-02-14" min="2023-02-14" max="2030-12-31">
+        </div>
+        <div class="form_row">
+            <input type="submit">
+        </div>
+    </form>
+</div>
+</body>
+</html>
