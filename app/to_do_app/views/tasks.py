@@ -9,9 +9,15 @@ def add_task(request: WSGIRequest):
         return render(request, 'add_new_task.html')
     task_data = {
         'description': request.POST.get('description'),
-        'status': request.POST.get('status'),
-        'complete_date': request.POST.get('complete_date')
+        'status': request.POST.get('status', 'new'),
+        'complete_data': request.POST.get('complete_data')
     }
+    status_mapping = {
+        'new': 'новая',
+        'in_process': 'в процессе',
+        'complete': 'сделано',
+    }
+    task_data['status'] = status_mapping.get(task_data['status'], 'new')
     task = Task.objects.create(**task_data)
 
     return redirect(f'/task/?pk={task.pk}')
