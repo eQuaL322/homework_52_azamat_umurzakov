@@ -1,8 +1,8 @@
 from django.urls import path
 
-from to_do_app.views.base import index_view, tasks_list
+from to_do_app.views.base import tasks_list, task_view
 
 urlpatterns = [
-    path('', index_view),
-    path('tasks', tasks_list)
+    path('', tasks_list),
+    path('task/', task_view)
 ]
