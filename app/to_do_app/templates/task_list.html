@@ -12,15 +12,20 @@
     <h1>To-Do list</h1>
     <div class="row my-5">
         {% for task in tasks %}
-            <div class="col-3">
-                <h3 class="">{{ task.description }}</h3>
+            <div class="col-3 my-3">
+                <h4 class="text-uppercase">{{ task.description }}</h4>
                 <p>
-                    <a href="/task/?pk={{ task.pk }}" class="btn btn-link">Посмотреть задачу</a>
+                    <a href="/task/?pk={{ task.pk }}" class="btn btn-link text-decoration-none text-lowercase">Посмотреть
+                        задачу</a>
                 </p>
             </div>
         {% endfor %}
     </div>
     <a href="/task/add" class="btn btn-dark">Добавить новую задачу</a>
+</div>
+<div class="col-3 mt-5 mx-5">
+    <p class="mx-5 h6 small">PS: все коммиты на английском, потому что мой терминал выдает иероглифы когда печатаю на
+        русском</p>
 </div>
 </body>
 </html>
